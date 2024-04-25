@@ -2,7 +2,6 @@
 -- Optimize simple search
 
 -- ALTER TABLE names
--- ADD COLUMN IF NOT EXISTS first_letter CHAR(1) GENERATED ALWAYS AS (LEFT(name, 1)) STORED;
+-- ADD COLUMN first_letter CHAR(1) GENERATED ALWAYS AS (LEFT(name, 1)) STORED;
 
--- CREATE INDEX idx_name_first ON names (first_letter);
-CREATE INDEX idx_name_first ON names ((LEFT(name, 1)));
+CREATE INDEX idx_name_first ON names (name(1));
