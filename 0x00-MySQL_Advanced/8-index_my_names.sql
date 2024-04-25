@@ -5,4 +5,8 @@
 -- ADD COLUMN first_letter CHAR(1) GENERATED ALWAYS AS (LEFT(name, 1)) STORED;
 
 -- CREATE INDEX idx_name_first ON names (first_letter);
-CREATE INDEX idx_name_first ON names (SUBSTRING(name, 1, 1));
+-- CREATE INDEX idx_name_first ON names (SUBSTRING(name, 1, 1));
+ALTER TABLE names
+ADD COLUMN first_letter CHAR(1) GENERATED ALWAYS AS (SUBSTRING(name, 1, 1)) STORED;
+
+CREATE INDEX idx_name_first ON names (first_letter);
