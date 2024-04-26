@@ -2,4 +2,4 @@
 -- No table for a meeting
 CREATE VIEW need_meeting AS
 SELECT name FROM students
-WHERE students.score > 80 AND (students.last_meeting IS NULL OR students.last_meeting < DATE_SUB(NOW(), INTERVAL 1 MONTH));
+WHERE students.score < 80 AND (students.last_meeting IS NULL OR students.last_meeting > 1 MONTH);
