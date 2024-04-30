@@ -5,14 +5,12 @@
 def top_students(mongo_collection):
     """Function that returns all students sorted by average score"""
     pipeline = [
-        {
-            "$addFields": {
-                "averageScore": {"$avg": "$scores.score"}
-            }
-        },
-        {
-            "$sort": {"averageScore": -1}
-        }
+        {"$unwind": "$topics"},
+        {"$group": {
+            "_id": "$_id",
+            "name": {"$first": "$name"},
+            "averageScore": {"$avg": "$topics.score"}
+        }},
+        {"$sort": {"averageScore": -1}}
     ]
-    top_students = list(mongo_collection.aggregate(pipeline))
-    return top_students
+    return list(mongo_collection.aggregate(pipeline))
