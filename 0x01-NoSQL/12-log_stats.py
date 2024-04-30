@@ -12,6 +12,6 @@ if __name__ == "__main__":
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     for method in methods:
         count = nginx_collection.count_documents({"method": method})
-        print(f"    method {method}: {count}")
+        print(f"\tmethod {method}: {count}")
 
     print(f"{nginx_collection.count_documents({'method': 'GET', 'path': '/status'})} status check")
