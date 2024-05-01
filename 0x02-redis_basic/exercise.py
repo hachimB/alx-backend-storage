@@ -12,6 +12,7 @@ class Cache:
     def __init__(self):
         """init method"""
         self._redis = r
+        self._redis.flushdb()
 
     def store(self, data: typing.Union[str, bytes, int, float]) -> str:
         """store method"""
