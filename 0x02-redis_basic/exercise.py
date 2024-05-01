@@ -5,7 +5,6 @@ import uuid
 import typing
 
 
-# r = redis.Redis()
 class Cache:
     """Cache class"""
 
