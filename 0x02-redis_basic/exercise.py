@@ -6,7 +6,7 @@ import typing
 import functools
 
 
-def count_calls(method: typing.Callable):
+def count_calls(method: typing.Callable) -> typing.Callable:
     """Decorator to count the number of calls to a method"""
     key = method.__qualname__
 
