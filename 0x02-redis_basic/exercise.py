@@ -5,13 +5,13 @@ import uuid
 import typing
 
 
-r = redis.Redis()
+# r = redis.Redis()
 class Cache:
     """Cache class"""
 
     def __init__(self):
         """init method"""
-        self._redis = r
+        self._redis = redis.Redis()
         self._redis.flushdb()
 
     def store(self, data: typing.Union[str, bytes, int, float]) -> str:
