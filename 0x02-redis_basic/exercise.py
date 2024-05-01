@@ -8,7 +8,7 @@ import functools
 
 def count_calls(method: typing.Callable):
     """Decorator to count the number of calls to a method"""
-    key = f"count:{method.__qualname__}"
+    key = method.__qualname__
 
     @functools.wraps(method)
     def wrapper(self, *args, **kwargs):
